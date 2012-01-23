@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Web Shop</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://192.168.0.198/Webshop_jQm/css/jquery.mobile-1.0.min.css" />
+		<link rel="styöesheet" href="http://192.168.0.198/Webshop_jQm/css/basic.css" />
+		<script type="text/javascript" src="http://192.168.0.198/Webshop_jQm/js/jquery-1.6.4.min.js"></script>
+		<script type="text/javascript" src="http://192.168.0.198/Webshop_jQm/js/webshop-0.2.js"></script>
+		<script type="text/javascript" src="http://192.168.0.198/Webshop_jQm/js/jquery.mobile-1.0.min.js"></script>
+		<script type="text/javascript" src="http://192.168.0.198:8000/nowjs/now.js"></script>
+		<style>
+			.content{
+			height:device-height;
+			overflow-y: scroll;
+			-webkit-overflow-scrolling: touch;
+			}
+			.main_nav {
+				width: 100%;
+				background-color: black;
+				background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f1f1f1), color-stop(1, #e2e2e2));
+				border-bottom: 1px solid #bfc4c8;
+				display: table;
+				text-align: center;
+			}
+			.main_nav a {
+				display: table-cell;
+				font: 18px/34px Arial, Helvetica, sans-serif;
+				font-color: black;
+				text-decoration: none;
+				padding: 0 3px 0 0;
+			}
+
+		</style>
+		
+		<script>
+		$('#mainPage').live('pagecreate', function (event) {
+		  window.now = nowInitialize('http://192.168.0.198:8000');
+		  now.func = function () {};
+		  now.ready(function () {
+			$().initApp($('initMainPage'));
+		    console.log('This should work.');
+		  });
+		});
+		</script>
+	</head>
+	<body>
+		
+		<!-- Begin: Main Shop page  -->
+		<section id="mainPage" data-role="page" position="fixed">
+				<header data-role="header" id="main_header">
+					<h1>Web-Shop (jQuery mobile)</h1>
+					<a href="#account"
+					   data-transition="flip"
+					   data-role="button"
+					   data-icon="gear"
+					   data.icon-pos="notext"
+					   class="ui-btn-right">Account</a>
+					<nav class="main_nav">
+						<a href="" data-transition="slidedown">Stores</a><a href="">Cart</a><a href="">Help</a>
+					</nav>
+				</header><!--- /header -->
+				
+				<div class="content" data-role="content">
+					<input type="search" name="search" id="main_search" value="search . . .">
+					<div id="main_teaser">
+						<div id="test" class="ui-bar ui-bar-e" style="height:200px"></div>
+					</div>
+					<nav id="main_categories" data-role="collapsible-set">
+					</nav>
+					
+					
+				</div><!-- /content -->
+		<footer data-role="footer" data-theme="c">
+			<h1>dmc WebShop <i>jQuery mobile</i></h1>
+		</footer>
+		</section>
+		<!-- End: Main Shop page -->
+		
+		<!-- Begin: Account page -->
+		<section id="accountPage" data-role="page">
+			<header data-role="header">
+				<h1>Web-Shop (jQuery mobile)</h1>
+			</header>
+			
+			<div class="content" data-role="content">
+				<h3>Account-Login</h3>
+				<div data-role="fieldcontain">
+					<label for="userId">Email Address:</label>
+					<input type="text" id="userId" value="">
+				</div>
+				<div data-role="fieldcontain">
+					<label for="pwd">Password:</label>
+					<input type="password" id="pwd" value="">
+				</div>
+			</div>
+			<footer data-role="footer">
+				<h1>dmc WebShop <i>jQuery mobile</i></h1>
+			</footer>
+		</section>
+		<!-- End: Account page -->
+		
+		<!-- Begin: Product view -->
+		<section id="productPage" data-role="page">
+			<header data-role="header">
+				<h1>Web-Shop (jQuery mobile)</h1>
+			</header>
+			<div class="content" data-role="content">
+				<div class="container-products">
+				</div>
+			</div>
+			<footer data-role="footer">
+				<h1>dmc WebShop <i>jQuery mobile</i></h1>
+			</footer>
+		</section>
+		<!-- End: Product view -->
+		
+		<!-- Begin: Product detail view -->
+		<section id="productDetailPAge" data-role="page">
+			<header data-role="header">
+				<h1>Web-Shop (jQuery mobile)</h1>
+			</header>
+			<div class="content" data-role="content">
+				<div class="container-products">
+				</div>
+			</div>
+			<footer data-role="footer">
+				<h1>dmc WebShop <i>jQuery mobile</i></h1>
+			</footer>
+		</section>
+		<!-- End: Product detail view -->
+		
+		<!-- Begin: Error page -->
+		<section id="pageError" data-role="page" data-theme="e">
+			<header data-role="header">
+				<h1>Web-Shop (jQuery mobile)</h1>
+			</header>
+			<div class="content" data-role="content">
+			</div>
+			<footer data-role="footer">
+				<h1>dmc WebShop <i>jQuery mobile</i></h1>
+			</footer>
+		</section>
+		<!-- End: Error page -->
+	</body>
+</html>

@@ -1,0 +1,112 @@
+{
+	"unique_identifier": [
+	{
+		"attribute_1": "data",
+		"attribute_2": "data",
+		"leaf": false,
+		"item_1": [
+		{
+			"attribute_1": "data",
+			"attribute_2": "data",
+			"leaf": false,
+
+			"item_1_item_1": [
+			{
+				"attribute_1": "data",
+				"attribute_2": "data",
+				"leaf": true
+			},
+			{
+				"attribute_1": "data",
+				"attribute_2": "data",
+				"leaf": true
+			},
+						{
+				"attribute_1": "data",
+				"attribute_2": "data",
+				"leaf": true
+			}
+			]
+		},
+		{
+			"attribute_1": "data",
+			"attribute_2": "data",
+			"leaf": false,
+
+			"item_1_item_2": [
+			{
+				"attribute_1": "data",
+				"attribute_2": "data",
+				"leaf": true
+			},
+			{
+				"attribute_1": "data",
+				"attribute_2": "data",
+				"leaf": true
+			},
+						{
+				"attribute_1": "data",
+				"attribute_2": "data",
+				"leaf": true
+			}
+			]
+		}
+		]
+	},
+		{
+		"attribute_1": "data",
+		"attribute_2": "data",
+		"leaf": false,
+		"item_2": [
+		{
+			"attribute_1": "data",
+			"attribute_2": "data",
+			"leaf": false,
+
+			"item_2_item_1": [
+			{
+				"attribute_1": "data",
+				"attribute_2": "data",
+				"leaf": true
+			},
+			{
+				"attribute_1": "data",
+				"attribute_2": "data",
+				"leaf": true
+			},
+						{
+				"attribute_1": "data",
+				"attribute_2": "data",
+				"leaf": true
+			}
+			]
+		},
+		{
+			"attribute_1": "data",
+			"attribute_2": "data",
+			"leaf": false,
+
+			"item_2_item_2": [
+			{
+				"attribute_1": "data",
+				"attribute_2": "data",
+				"leaf": true
+			},
+			{
+				"attribute_1": "data",
+				"attribute_2": "data",
+				"leaf": true
+			},
+						{
+				"attribute_1": "data",
+				"attribute_2": "data",
+				"leaf": true
+			}
+			]
+		}
+		]
+	}
+
+	],
+	"leaf": false
+}
