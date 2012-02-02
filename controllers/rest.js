@@ -12,7 +12,6 @@ mongoClient.find({}, function(err, docs){
 });
 mongoose.disconnect();
 
-
 Intershop.completeList = function(req,res){
 		
 		mongoose.connect('mongodb://127.0.0.1/shopdatabase');

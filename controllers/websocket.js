@@ -1,11 +1,15 @@
-var everyone = require('./rest_server').everyone;
-var MongoDB = require('./../../models/mongoDB');
+var everyone = require('../lib/server/rest_server').everyone;
+var dirtydb = require('../models/dirtyDB').dirtyDb;
+var MongoDB = require('../models/mongoDB');
 var mongoose = require('mongoose');
 var mongoClient = MongoDB.clients;
+var mongoSubcategory = MongoDB.subcategories;
+
+var ObjectId = require('mongoose').Types.ObjectId;
 
 /*client: 'jqm/titanium etc'
 */
-
+var websockets = {};
 var dbCache = [];
 mongoose.connect('mongodb://127.0.0.1/shopdatabase');
 mongoClient.find({}, function(err, docs){
@@ -16,20 +20,20 @@ mongoClient.find({}, function(err, docs){
 mongoose.disconnect();
 
 
-everyone.now.loadMainCategories = function(client, service, callback) {
+websockets.loadMainCategories = function(client, service, callback) {
 	var mainCat,
 		categories;
 	
 	if(client === 'jqm') {
-
 		if(service === 'intershop') {
+			//dirtyDB
 			var returnData = [];	
 			mainCat = dirtydb.mainCategories.get('MainCategories');
 			for(var domain in mainCat) {
 				mainCat[domain].subcategories = dirtydb.subCategories.get(mainCat[domain].domainName);
 			}
+			//MongoDB
 			var intershop = dbCache['intershop'];
-			
 			for (var main=0; main < intershop.items.length; main++) {
 				var subs = [];
 				for (var sub=0; sub < intershop.items[main].items.length; sub++) {
@@ -37,7 +41,6 @@ everyone.now.loadMainCategories = function(client, service, callback) {
 				}	
 				returnData.push({name: intershop.items[main].name, subcategories: subs});
 			}
-			
 			callback(null, returnData);
 		}
 		else if(service === 'elegance') {
@@ -67,13 +70,25 @@ everyone.now.loadMainCategories = function(client, service, callback) {
 		
 	} else {
 		//different clients
-	}
-	
-	
+	}	
 }
 
-everyone.now.distributeTeaser = function(message) {
+websockets.loadProducts = function(client, service, SubId, callback) {
+	if(client === 'jqm') {
+		if(service === 'elegance' || 'intershop') {
+			mongoose.connect('mongodb://127.0.0.1/shopdatabase');
+			mongoSubcategory.findOne({'name': SubId.replace('&amp;', '&')}, function(err, docs){
+				if (!err) {
+			    	callback(null, docs);
+				}
+			});
+			mongoose.disconnect();
+		}
+	}
+}
+
+websockets.distributeTeaser = function(message) {
 	everyone.now.receieveTeaserData(message);
 }
 
-module.exsports = everyone;
+exports.websockets = websockets;
