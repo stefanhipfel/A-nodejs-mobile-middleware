@@ -19,7 +19,6 @@ mongoClient.find({}, function(err, docs){
 });
 mongoose.disconnect();
 
-
 websockets.loadMainCategories = function(client, service, callback) {
 	var mainCat,
 		categories;
@@ -87,8 +86,5 @@ websockets.loadProducts = function(client, service, SubId, callback) {
 	}
 }
 
-websockets.distributeTeaser = function(message) {
-	everyone.now.receieveTeaserData(message);
-}
 
 exports.websockets = websockets;

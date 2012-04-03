@@ -10,7 +10,7 @@ exports.jqmWebShop = function(req,res){
 		
 }
 
-exports.html = function(req,res){
+exports.websocket = function(req,res){
 
 	fs.readFile('./views/InstantTeaser.html', function(err, data) {
 		if(err) {console.log(err);}

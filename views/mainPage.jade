@@ -1,0 +1,14 @@
+div(data-role='page')
+	header(data-role='header')
+		h1= title
+	div(data-role='content')
+		nav(data-role='collapsible-set')	
+			- if(items.length)
+				- for(var cat=0; cat < items.length; cat++)
+					div(data-role='collapsible', data-theme='b')
+						h3= items[cat].name
+						ul(data-role='listview', data-theme='g') 
+							-for(var subcat=0; subcat < items[cat].subcategories.length; subcat++)
+								li
+									a(href='#productPage', data-transistion='slide')
+										h3= items[cat].subcategories[subcat].name
